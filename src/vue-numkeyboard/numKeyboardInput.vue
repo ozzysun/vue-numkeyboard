@@ -84,7 +84,10 @@ export default {
       } else if (code === 'LD') { // long del
         mutableValue = ''
         this.$emit('input', mutableValue)
-      } else if (code === 'F' || code === 'K') { // fold or ok
+      } else if (code === 'F') { // fold
+        this.blur()
+        this.$emit('onFold', mutableValue)
+      } else if (code === 'K') { // ok
         this.blur()
         this.$emit('onOk', mutableValue)
       } else if (/[0-9\.]/.test(code)) { // normal input
